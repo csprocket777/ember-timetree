@@ -251,7 +251,12 @@ const TimeTreeComponent = Ember.Component.extend({
   },
 
   drawAxis() {
-    this.get('svg').select('.x.axis').call(this.get('xAxis'));
+    let labelsWidth = this.get('labelsWidth');
+    let contentHeight = this.get('contentHeight');
+    let axisPosition = this.get('axisPosition');
+    let axisTop = axisPosition === 'top' ? axisHeight : contentHeight;
+    this.get('svg').select('.x.axis').call(this.get('xAxis'))
+      .attr('transform', 'translate(' + labelsWidth + ',' + axisTop + ')');
   },
 
   // This function is passed to d3, it's not called as a member of the View
