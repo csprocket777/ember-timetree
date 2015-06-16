@@ -165,7 +165,7 @@ const TimeTreeComponent = Ember.Component.extend({
   svg: Ember.computed(function() {
     var element = this.get('element');
     return element ? d3.select(element) : null;
-  }).property('element'),
+  }).property(),
 
   rootNode: Ember.computed(function() {
     let nodes = this.get('content');
